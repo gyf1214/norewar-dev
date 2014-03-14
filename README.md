@@ -5,11 +5,13 @@ The development tool for [Norewar](https://github.com/gyf1214/norewar-rails).
 Installation
 -------------
 Use Bundler to install the required gems.
+
 	bundle install
 
 Common Usage
 ------
 The main CLI program is a small Norewar interpreter for development & debugging, enter the main directory & use the following command to start it.
+
 	./run something.json
 
 Configuration

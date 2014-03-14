@@ -1,0 +1,10 @@
+:off	1
+:on		2
+
+@main
+	turn 1
+	move
+	create 3
+	trans @main @end ~@main
+	jump @main
+@end

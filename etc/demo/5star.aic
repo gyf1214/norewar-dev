@@ -3,6 +3,7 @@
 :friend	2
 :off	1
 :on		2
+:life	100
 
 @main
 @main.loop
@@ -45,6 +46,9 @@
 
 @spy
 @spy.loop
+	ecomp $2 :life
+	jump @die
+	inc $2
 	turn 1
 	move
 	scan $1

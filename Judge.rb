@@ -31,22 +31,18 @@ module Judge
 					puts robot.code[i]
 				end
 			end
+		end
 		puts
 	end
 
 	def self.start(args = [])
 		return help if args[0].nil?
-		str = ''
-		File.foreach(args[0]) do |line|
-			str += line
-		end
+		str = File.read(args[0])
 		data = JSON.parse str
 		codes = []
 		data['competitors'].each do |competitor|
-			str = ''
-			File.foreach(competitor) do |line|
-				str += line
-			end
+			path = File.expand_path("../#{competitor}", args[0])
+			str = File.read(path)
 			codes.push str
 		end
 		@match = Match.new(codes)

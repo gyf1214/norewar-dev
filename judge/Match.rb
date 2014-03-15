@@ -90,6 +90,7 @@ module Judge
 		def print
 			puts next_time
 			Global::MapSize.times do |i|
+				printf "%2d ", i
 				s = ""
 				Global::MapSize.times do |j|
 					s += if @map[i][j].nil? then "0" else @map[i][j].team.to_s end

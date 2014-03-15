@@ -77,7 +77,7 @@ module Judge
 				x = eval_label(args[0])
 				y = eval_label(args[1])
 				z = eval_label(args[2])
-				face_robot.replace(@code[x..y], z)
+				face_robot.replace(@code[x..(y - 1)], z)
 			end
 			true
 		end

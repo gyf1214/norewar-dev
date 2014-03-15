@@ -3,7 +3,10 @@
 
 	"competitors":
 	[
-			"2.aic", 
-			"3star.aic"
+			"2.aic",
+			"3.aic",
+			"3star.aic",
+			"5.aic",
+			"5star.aic"
 	]
 }

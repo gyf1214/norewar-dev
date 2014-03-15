@@ -1,0 +1,55 @@
+:empty	0
+:enemy	1
+:friend	2
+:off	1
+:on		2
+
+@main
+@main.loop
+	turn 1
+	move
+	scan $1
+	ecomp $1 :enemy
+	jump @main.enemy
+	ecomp $1 :friend
+	jump @main.friend
+	jump @main.empty
+
+@main.enemy
+	power :off
+	trans @spy @end ~@main
+	power :on
+	jump @main.loop
+
+@main.friend
+	power :on
+	jump @main.loop
+
+@main.empty
+	create 3
+	trans @main.loop @end ~@main
+	power :on
+	jump @main.loop
+@main.end
+
+@spy
+@spy.loop
+	turn 1
+	move
+	scan $1
+	ecomp $1 :enemy
+	jump @spy.loop
+	ecomp $1 :friend
+	jump @spy.friend
+	jump @spy.loop
+
+@spy.friend
+	power :off
+	trans @die @end ~@main
+	power :on
+	jump @spy.loop
+@spy.end
+
+@die
+	die
+@end

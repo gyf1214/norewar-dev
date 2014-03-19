@@ -1,0 +1,15 @@
+:empty 0
+:enemy 1
+
+@main
+	move
+	scan $1
+	ecomp $1 :empty
+	jump @main
+	ecomp $1 :enemy
+	trans @die @end ~@main
+	turn 1
+	jump @main
+@die
+	die
+@end

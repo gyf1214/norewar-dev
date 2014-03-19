@@ -1,0 +1,35 @@
+:empty	0
+:enemy	1
+:friend	2
+:off	1
+:on		2
+
+
+@main
+@main.loop
+	create 3
+	trans @builder @killer.end ~@main
+	power :on
+	turn 1
+	jump @main.loop
+@main.end
+
+@builder
+	create 3
+	trans @builder @killer.end ~@main
+	power :on
+	turn 1
+@builder.loop
+	create 1
+	trans @killer @killer.end ~@main
+	power :on
+	turn 1
+	turn 1
+	jump @builder.loop
+@builder.end
+
+@killer
+@killer.loop
+	nop
+	jump @killer.loop
+@killer.end
